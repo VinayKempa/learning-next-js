@@ -1,9 +1,30 @@
-import styles from "../styles/Home.module.css";
-
-export default function Home() {
+function Home(props) {
+  const { products } = props;
   return (
-    <div className={styles.container}>
-      <h1>The home page</h1>
-    </div>
+    <ul>
+      {(products || []).map((product) => {
+        return <li key={product.id}>{product.title}</li>;
+      })}
+    </ul>
   );
 }
+
+// Before Load
+export async function getStaticProps() {
+  return {
+    props: {
+      products: [
+        {
+          id: "p1",
+          title: "Product 1",
+        },
+        {
+          id: "p2",
+          title: "Product 2",
+        },
+      ],
+    },
+  };
+}
+
+export default Home;
