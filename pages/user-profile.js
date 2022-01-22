@@ -6,6 +6,9 @@ export default UserProfilePage;
 
 // Executes on every incoming request. Not executes on build
 export async function getServerSideProps(context) {
+  const { params, req, res } = context;
+
+  console.log("Server side code");
   return {
     props: {
       username: "Vinay",
