@@ -1,9 +1,16 @@
-import styles from "../styles/Home.module.css";
+import React from "react";
+import Hero from "../components/home-page/hero";
 
-export default function Home() {
+function HomePage() {
   return (
-    <div className={styles.container}>
-      <h1>The home page</h1>
-    </div>
+    <React.Fragment>
+      <Hero />
+      {/* <FeaturedPosts /> */}
+    </React.Fragment>
   );
 }
+
+export default HomePage;
+
+// 1 -> Hero - Present ourself
+// 2 -> Featured posts
