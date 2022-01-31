@@ -1,18 +1,14 @@
-import Head from "next/head";
-import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/layout/layout";
+import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <React.Fragment>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+    <SessionProvider session={session} refetchInterval={5 * 60}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </React.Fragment>
+    </SessionProvider>
   );
 }
 
